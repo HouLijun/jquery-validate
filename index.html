@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+    <title>表单验证</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .box {
+            width: 1200px;
+            margin: 20px auto;
+        }
+    </style>
+</head>
+<body>
+<div class="box">
+    <form class="form-horizontal" id="form">
+        <div class="form-group">
+            <label for="account" class="col-sm-2 control-label">用户名</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="account" placeholder="用户名"  aria-describedby="helpBlockAccount"  minlength="6" required>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="password" class="col-sm-2 control-label">密码</label>
+            <div class="col-sm-10">
+                <input type="password" class="form-control" id="password" placeholder="密码" required minlength="6" maxlength="20">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="confirmPassword" class="col-sm-2 control-label">确认密码</label>
+            <div class="col-sm-10">
+                <input type="password" class="form-control" id="confirmPassword" placeholder="确认密码" required minlength="6" maxlength="20" equalTo="#password">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="email" class="col-sm-2 control-label">Email(可选)</label>
+            <div class="col-sm-10">
+                <input type="email" class="form-control" id="email" placeholder="Email">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="url" class="col-sm-2 control-label">Url(可选)</label>
+            <div class="col-sm-10">
+                <input type="url" class="form-control" id="url" placeholder="Url">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="ignore" class="col-sm-2 control-label">不验证email</label>
+            <div class="col-sm-10">
+                <input type="email" class="form-control ignore" id="ignore" placeholder="不需要验证的email" required>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox" name="remember"> Remember me
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+                <button type="submit" class="btn btn-default">Sign in</button>
+            </div>
+        </div>
+    </form>
+</div>
+
+<script src="js/jquery.min.js"></script>
+<script src="js/jquery.validate.js"></script>
+<script src="js/messages_zh.min.js"></script>
+<script>
+    $(function () {
+        $("#form").validate({
+            debug:true
+        });
+    })
+    $.validator.setDefaults({
+        submitHandler: function() {
+            alert("表单提交事件!");
+        }
+    });
+</script>
+</body>
+</html>

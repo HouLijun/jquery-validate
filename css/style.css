@@ -1,0 +1,12 @@
+.error{
+    color: #a94442;
+}
+input.error{
+    border-color: #a94442;
+}
+.valid{
+    color: #3c763d;
+}
+input.valid{
+    border-color:#3c763d;
+}
